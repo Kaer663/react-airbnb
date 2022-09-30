@@ -1,12 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit";
 
-import homeReducer from "./modules/home"
-import entireReducer from "./modules/entire"
+import homeReducer from "./modules/home";
+import entireReducer from "./modules/entire";
 
 const store = configureStore({
   reducer: {
-    homeReducer, entireReducer
+    homeReducer,
+    entireReducer
   }
-})
+});
 
 export default store;
