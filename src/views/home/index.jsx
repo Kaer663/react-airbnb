@@ -1,23 +1,22 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
-import baseRequest from "@/services";
+import HomeBanner from "./cpns/banner";
+import { fetchHomeDataAction } from "@/store/modules/home";
 
 export default memo(function Home() {
-  const [highScore, setHighScore] = useState({});
+  const dispatch = useDispatch();
+  const { goodProductData } = useSelector(
+    (state) => ({ goodProductData: state.homeReducer.goodProductData }),
+    shallowEqual
+  );
+  console.log("结果：", goodProductData);
   useEffect(() => {
-    baseRequest.get({ url: "home/highscore" }).then((res) => {
-      console.log("请求到的数据：", res);
-      setHighScore(res);
-    });
-  }, []);
+    dispatch(fetchHomeDataAction());
+  }, [dispatch]);
   return (
     <div>
-      name:{highScore.name}
-      <ul>
-        {highScore.list?.map((i) => (
-          <li key={i.id}>{i.name}</li>
-        ))}
-      </ul>
+      <HomeBanner />
     </div>
   );
 });

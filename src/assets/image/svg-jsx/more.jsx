@@ -10,10 +10,10 @@ export default memo(function global() {
       role="presentation"
       focusable="false"
       style={parser(
-        "display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"
+        "display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; strokeWidth: 3; overflow: visible;"
       )}
     >
-      <g fill="none" fill-rule="nonzero">
+      <g fill="none" fillRule="nonzero">
         <path d="m2 16h28"></path>
         <path d="m2 24h28"></path>
         <path d="m2 8h28"></path>

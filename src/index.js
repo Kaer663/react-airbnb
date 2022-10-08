@@ -14,14 +14,15 @@ import App from "./App.jsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}></Provider>
-    <Suspense fallback="loading">
-      <ThemeProvider theme={theme}>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </ThemeProvider>
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback="loading">
+        <ThemeProvider theme={theme}>
+          <HashRouter>
+            <App />
+          </HashRouter>
+        </ThemeProvider>
+      </Suspense>
+    </Provider>
   </React.StrictMode>
 );
 

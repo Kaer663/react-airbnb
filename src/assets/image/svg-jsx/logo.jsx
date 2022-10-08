@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import parser from "style-to-object";
 
-export default function logo() {
+export default memo(function logo() {
   return (
     <svg width="102" height="32" style={parser("display:block")}>
       <path
@@ -14,4 +14,4 @@ export default function logo() {
       ></path>
     </svg>
   );
-}
+});

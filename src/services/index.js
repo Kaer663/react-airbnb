@@ -6,6 +6,7 @@ const baseRequest = new BaseRequest({
   timeout: BASE_TIME,
   interceptors: {
     requestInterceptor: (config) => {
+      console.log("请求前的config:", config);
       return config;
     },
     requestInterceptorCatch(error) {
