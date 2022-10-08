@@ -51,12 +51,11 @@ export default memo(function InRight() {
   const panelRef = useRef();
   const handleUser = (e) => {
     e.stopPropagation();
-    console.log(e.stopPropagation);
     panelRef.current.visible = !panelState;
     setPanelState(!panelState);
   };
   useEffect(() => {
-    const windowClickSub = fromEvent(document, "click").subscribe((e) => {
+    const windowClickSub = fromEvent(document, "click").subscribe(() => {
       panelRef.current.visible = false;
       setPanelState(false);
     });
