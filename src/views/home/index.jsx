@@ -1,7 +1,8 @@
 import { memo, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
-import HomeBanner from "./cpns/banner";
+import HomeBanner from "./cnps/banner";
+import HomeContent from "./cnps/content";
 import { fetchHomeDataAction } from "@/store/modules/home";
 
 export default memo(function Home() {
@@ -10,13 +11,25 @@ export default memo(function Home() {
     (state) => ({ goodProductData: state.homeReducer.goodProductData }),
     shallowEqual
   );
-  console.log("结果：", goodProductData);
   useEffect(() => {
     dispatch(fetchHomeDataAction());
   }, [dispatch]);
   return (
-    <div>
+    <div className="home-page">
       <HomeBanner />
+      <HomeContent goodProductData={goodProductData} />
+      <ul>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+        <li>xxx</li>
+      </ul>
     </div>
   );
 });

@@ -3,11 +3,20 @@ import PropTypes from "prop-types";
 
 import { HeaderWrapper } from "./style";
 
-const SectionHeader = memo(() => {
-  return <HeaderWrapper></HeaderWrapper>;
+const SectionHeader = memo((props) => {
+  const { title, subtitle } = props;
+
+  return (
+    <HeaderWrapper>
+      <section>
+        <h2 className="title">{title}</h2>
+      </section>
+      {subtitle && <div className="subtitle">{subtitle}</div>}
+    </HeaderWrapper>
+  );
 });
 
-SectionHeader.PropTypes = {
+SectionHeader.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string
 };

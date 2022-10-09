@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components"
+import { ConfigProvider } from "antd"
 import "normalize.css";
+import 'antd/dist/antd.min.css';
+import zhCN from 'antd/es/locale/zh_CN';
 
 import "@/assets/css/index.scss";
 import "./index.css";
@@ -14,15 +17,18 @@ import App from "./App.jsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Suspense fallback="loading">
-        <ThemeProvider theme={theme}>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </ThemeProvider>
-      </Suspense>
-    </Provider>
+    <ConfigProvider locale={zhCN}>
+      <Provider store={store}>
+        <Suspense fallback="loading">
+          <ThemeProvider theme={theme}>
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </ThemeProvider>
+        </Suspense>
+      </Provider>
+    </ConfigProvider>
+
   </React.StrictMode>
 );
 
