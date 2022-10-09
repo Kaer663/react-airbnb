@@ -70,7 +70,7 @@ export default memo(function InRight() {
         <span>登录</span>
         <span>注册</span>
         <span>
-          <Global />
+          <Global xs="margin:3px 0 0 0" />
         </span>
       </div>
       <div className="profile" onClick={(e) => handleUser(e)}>

@@ -1,9 +1,9 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 
 import { ContentWrapper } from "./style";
 import SectionHeader from "@/components/section-header";
-import RoomItem from "@/components/room-item";
+import SectionRooms from "@/components/section_rooms";
 
 const HomeContent = memo((props) => {
   const { goodProductData = {} } = props;
@@ -12,13 +12,7 @@ const HomeContent = memo((props) => {
   return (
     <ContentWrapper>
       <SectionHeader title={goodProductData.title} />
-      <ul className="room-content">
-        {goodProductData.list?.map((i) => (
-          <Fragment key={i.id}>
-            <RoomItem itemData={i} />
-          </Fragment>
-        ))}
-      </ul>
+      <SectionRooms roomList={goodProductData.list || []} />
     </ContentWrapper>
   );
 });
