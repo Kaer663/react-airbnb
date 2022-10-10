@@ -5,9 +5,12 @@ import Rating from "@mui/material/Rating";
 import { RoomItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData = {} } = props;
+  const { itemData = {}, itemWidth = "25%" } = props;
   return (
-    <RoomItemWrapper verifyColor={itemData.verify_info?.textColor || "#39576a"}>
+    <RoomItemWrapper
+      verifyColor={itemData.verify_info?.textColor || "#39576a"}
+      itemWidth={itemWidth}
+    >
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
@@ -37,7 +40,8 @@ const RoomItem = memo((props) => {
 });
 
 RoomItem.propType = {
-  itemData: PropTypes.object
+  itemData: PropTypes.object,
+  itemWidth: PropTypes.string
 };
 
 export default RoomItem;

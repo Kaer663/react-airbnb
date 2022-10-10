@@ -5,14 +5,14 @@ import { SectionRoomsWrapper } from "./style";
 import RoomItem from "../room-item";
 
 const SectionRooms = memo((props) => {
-  const { roomList = [] } = props;
+  const { roomList = [], itemWidth = "25%" } = props;
 
   return (
     <SectionRoomsWrapper>
       <ul className="room-content">
         {roomList.map((i) => (
           <Fragment key={i.id}>
-            <RoomItem itemData={i} />
+            <RoomItem itemData={i} itemWidth={itemWidth} />
           </Fragment>
         ))}
       </ul>
@@ -21,7 +21,8 @@ const SectionRooms = memo((props) => {
 });
 
 SectionRooms.propTypes = {
-  roomList: PropsTypes.array.isRequired
+  roomList: PropsTypes.array.isRequired,
+  itemWidth: PropsTypes.string
 };
 
 export default SectionRooms;
