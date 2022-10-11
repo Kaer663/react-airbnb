@@ -6,12 +6,13 @@ import { TabsWrapper } from "./style";
 
 const SectionTabs = memo((props) => {
   const { tabNames = [], tabClick } = props;
-  const [tabName, setTabName] = useState("佛山");
+  const [tabName, setTabName] = useState(tabNames[0] || "");
 
   const handleClick = (i) => {
     setTabName(i);
     tabClick(i);
   };
+
   return (
     <TabsWrapper>
       <div className="location">
