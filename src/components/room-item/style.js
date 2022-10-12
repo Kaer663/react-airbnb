@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-
 export const RoomItemWrapper = styled.div`
+  ${props => props.isScroll && "flex-shrink: 0;"}/*flex布局不压缩宽度 */
   width: ${props => props.itemWidth};
   padding: 8px;
   .inner{

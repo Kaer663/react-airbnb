@@ -1,28 +1,40 @@
 import React, { Fragment, memo } from "react";
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import { SectionRoomsWrapper } from "./style";
 import RoomItem from "../room-item";
+import ScrollView from "@/base-ui/scroll-view";
 
 const SectionRooms = memo((props) => {
-  const { roomList = [], itemWidth = "25%" } = props;
+  const { roomList = [], itemWidth = "25%", isScroll = false } = props;
+
+  const wrapView = (
+    <ul className="room-content">
+      {roomList.map((i) => (
+        <Fragment key={i.id}>
+          <RoomItem itemData={i} itemWidth={itemWidth} isScroll={isScroll} />
+        </Fragment>
+      ))}
+    </ul>
+  );
+
+  const scrollView = (
+    <ScrollView>
+      <div className="scroll">{wrapView}</div>
+    </ScrollView>
+  );
 
   return (
-    <SectionRoomsWrapper>
-      <ul className="room-content">
-        {roomList.map((i) => (
-          <Fragment key={i.id}>
-            <RoomItem itemData={i} itemWidth={itemWidth} />
-          </Fragment>
-        ))}
-      </ul>
+    <SectionRoomsWrapper isScroll={isScroll}>
+      {isScroll ? scrollView : wrapView}
     </SectionRoomsWrapper>
   );
 });
 
 SectionRooms.propTypes = {
-  roomList: PropsTypes.array.isRequired,
-  itemWidth: PropsTypes.string
+  roomList: PropTypes.array.isRequired,
+  itemWidth: PropTypes.string,
+  isScroll: PropTypes.bool
 };
 
 export default SectionRooms;

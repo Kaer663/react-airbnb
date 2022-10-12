@@ -5,11 +5,12 @@ import Rating from "@mui/material/Rating";
 import { RoomItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData = {}, itemWidth = "25%" } = props;
+  const { itemData = {}, itemWidth = "25%", isScroll = false } = props;
   return (
     <RoomItemWrapper
       verifyColor={itemData.verify_info?.textColor || "#39576a"}
       itemWidth={itemWidth}
+      isScroll={isScroll}
     >
       <div className="inner">
         <div className="cover">
@@ -41,7 +42,8 @@ const RoomItem = memo((props) => {
 
 RoomItem.propType = {
   itemData: PropTypes.object,
-  itemWidth: PropTypes.string
+  itemWidth: PropTypes.string,
+  isScroll: PropTypes.bool
 };
 
 export default RoomItem;

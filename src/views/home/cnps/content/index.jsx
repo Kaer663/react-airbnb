@@ -7,7 +7,6 @@ import SectionRooms from "@/components/section_rooms";
 
 const HomeContent = memo((props) => {
   const { goodProductData = {} } = props;
-  console.log("home content good product:", goodProductData);
 
   return (
     <ContentWrapper>
